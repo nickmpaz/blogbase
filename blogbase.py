@@ -54,7 +54,7 @@ class Blog():
                 changes = []
                 for f in changed_files:
                     try:
-                        file_diff_process = run(['git', '-C', tmpdir,'diff', previous_commit, current_commit, f], capture_output=True, check=True)
+                        file_diff_process = run(['git', '-C', tmpdir,'diff', '--color-words', previous_commit, current_commit, f], capture_output=True, check=True)
                     except CalledProcessError as e: 
                         raise e
                     file_diff = file_diff_process.stdout.decode('utf-8')
